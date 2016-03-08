@@ -1,6 +1,6 @@
 {
   "name": "react-transform-qa-classes",
-  "version": "0.0.2",
+  "version": "0.0.3-alpha",
   "description": "React transform that adds generated classes to component root nodes for use by QA",
   "main": "lib/index.js",
   "files": [

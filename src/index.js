@@ -6,6 +6,7 @@ const QA_CLASS_PREFIX = '__qa_';
 export default () => ReactClass => {
 	const ModifiedReactClass = ReactClass;
 	const render = ModifiedReactClass.prototype.render;
+
 	ModifiedReactClass.prototype.render = function () {
 		const renderedComponent = render.apply(this, arguments);
 		const name = ReactClass.displayName || ReactClass.name;

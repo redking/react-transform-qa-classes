@@ -1,11 +1,15 @@
 # react-transform-qa-classes
 
-Simple Babel plugin that adds classes to React component root nodes generated from the `displayName`. This was developed
-for a specific use case, but I guess it could be useful more generally.
+Simple Babel plugin that adds classes to React component root nodes generated from the `displayName` or class name.
+
+This was developed for a specific use case, but I guess it could be useful more generally. It's an alpha release - I have yet
+to test it in the wild.
 
 ## Usage
 
-In this example, add the following to .`babelrc`
+You should have Babel 6 installed and setup, then run `npm install babel-plugin-react-transform react-transform-qa-classes --save-dev`.
+
+Next setup .`babelrc`. In the example below, I have a special `env` value for QA testing. 
 
 ```js
 {
@@ -23,9 +27,9 @@ In this example, add the following to .`babelrc`
 }
 ```
 
-Then launch your build process with `BABEL_ENV=qa`.
+Then launch babel or your build process with `BABEL_ENV=qa`.
 
 ## Result
 
 Two classes are added to all component root nodes - `__qa` and `_qa_[displayName]` where `[displayName]` is the component `displayName` 
-(or class name) in lowercase.
+or class name in lowercase.
