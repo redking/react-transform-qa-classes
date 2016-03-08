@@ -8,9 +8,11 @@ export default () => ReactClass => {
 	const render = ModifiedReactClass.prototype.render;
 	ModifiedReactClass.prototype.render = function () {
 		const renderedComponent = render.apply(this, arguments);
-		if (renderedComponent) {
+		const name = ReactClass.displayName || ReactClass.name;
+
+		if (renderedComponent && name) {
 			const { props } = renderedComponent;
-			const className = classnames(props.className, QA_BASE_CLASS, QA_CLASS_PREFIX + ReactClass.displayName.toLowerCase());
+			const className = classnames(props.className, QA_BASE_CLASS, QA_CLASS_PREFIX + name.toLowerCase());
 			return Object.assign({}, renderedComponent, {
 				props: Object.assign({}, props, { className })
 			});
