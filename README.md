@@ -2,8 +2,8 @@
 
 Simple Babel plugin that adds classes to React component root nodes generated from the `displayName` or class name.
 
-This was developed for a specific use case, but I guess it could be useful more generally. It's an alpha release - I have yet
-to test it in the wild.
+This was developed for a specific use case, but I guess it could be useful more generally (or at least as a code reference). 
+It's an alpha release - I have yet to test it in the wild.
 
 ## Usage
 
@@ -33,3 +33,7 @@ Then launch babel or your build process with `BABEL_ENV=qa`.
 
 Two classes are added to all component root nodes - `__qa` and `_qa_[displayName]` where `[displayName]` is the component `displayName` 
 or class name in lowercase.
+
+## Bookmarklet
+
+`javascript:var comps = document.querySelectorAll('.__qa');[].forEach.call(comps, function(c, i){console.log(i, c.className, c);c.style.outline = '1px solid red'});`
